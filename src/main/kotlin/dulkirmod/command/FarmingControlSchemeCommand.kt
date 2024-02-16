@@ -1,6 +1,5 @@
 package dulkirmod.command
 
-import dulkirmod.config.DulkirConfig
 import dulkirmod.utils.TextUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.client.settings.KeyBinding
@@ -43,7 +42,8 @@ class FarmingControlSchemeCommand : ClientCommandBase("farmcontrols") {
                 leftKey.keyCode = 203 // 203 = Arrow Left key code
                 rightKey.keyCode = 205 // 205 = Arrow Right key code
 
-                minecraft.gameSettings.mouseSensitivity = 0.0f
+                // Set mouse sensitivity to 70
+                minecraft.gameSettings.mouseSensitivity = 0.7f
             } else {
                 KeyBinding.setKeyBindState(breakingKey.keyCode, false)
                 breakingKey.keyCode = -100 // -100 = Left click key code
@@ -57,7 +57,8 @@ class FarmingControlSchemeCommand : ClientCommandBase("farmcontrols") {
                 leftKey.keyCode = 30 // 30 = A key code
                 rightKey.keyCode = 32 // 32 = D key code
 
-                minecraft.gameSettings.mouseSensitivity = DulkirConfig.defaultSens / 2
+                // Set mouse sensitivity to 100
+                minecraft.gameSettings.mouseSensitivity = 1.0f
             }
 
             // Save the changes to the control settings

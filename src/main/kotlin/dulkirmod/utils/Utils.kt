@@ -11,7 +11,7 @@ import java.awt.datatransfer.StringSelection
 import java.util.*
 
 object Utils {
-	fun stripColorCodes(string: String): String {
+	private fun stripColorCodes(string: String): String {
 		return string.replace("§.".toRegex(), "")
 	}
 

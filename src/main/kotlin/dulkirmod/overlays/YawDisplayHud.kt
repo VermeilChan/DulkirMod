@@ -9,7 +9,6 @@ import dulkirmod.utils.Utils
 class YawDisplayHud : TextHud(false) {
     override fun getLines(lines: MutableList<String>?, example: Boolean) {
         if (!Utils.isInSkyblock()) return
-        if (!DulkirConfig.showYawEverywhere && TabListUtils.area != "Garden") return
 
         val pitch = mc.thePlayer.rotationPitch
         var yaw = mc.thePlayer.rotationYaw % 360f

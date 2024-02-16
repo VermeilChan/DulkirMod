@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "com.example.archloomtemplate"
-version = "1.2.8"
+version = "1.2.8.2"
 
 // Toolchains:
 java {
@@ -55,8 +55,6 @@ val packageLib by configurations.creating {
 repositories {
     mavenCentral()
     maven("https://repo.spongepowered.org/maven/")
-    // If you don't want to log in with your real minecraft account, remove this line
-    maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
     maven("https://repo.essential.gg/repository/maven-public/")
     maven("https://repo.polyfrost.cc/releases")
 }
@@ -77,9 +75,6 @@ dependencies {
         isTransitive = false
     }
     annotationProcessor("net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5")
-
-    // If you don't want to log in with your real minecraft account, remove this line
-    runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.1.0")
 
     // Basic OneConfig dependencies for legacy versions. See OneConfig example mod for more info
     compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.2.2-alpha+") // Should not be included in jar

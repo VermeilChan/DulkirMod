@@ -43,7 +43,7 @@ class FarmingControlSchemeCommand : ClientCommandBase("farmcontrols") {
                 rightKey.keyCode = 205 // 205 = Arrow Right key code
 
                 // Set mouse sensitivity to 70
-                minecraft.gameSettings.mouseSensitivity = 0.35f
+                minecraft.gameSettings.mouseSensitivity = 0.2f
             } else {
                 KeyBinding.setKeyBindState(breakingKey.keyCode, false)
                 breakingKey.keyCode = -100 // -100 = Left click key code
@@ -66,7 +66,7 @@ class FarmingControlSchemeCommand : ClientCommandBase("farmcontrols") {
             minecraft.gameSettings.loadOptions()
 
             enabled = !enabled
-            TextUtils.toggledMessage("lil bru i think you just enabled the farming controls :3 oil up or else im gonna do something really to u :D", enabled)
+            TextUtils.toggledMessage("idk man the farming controls are killing me man ¯\\_(ツ)_/¯", enabled)
         }
     }
 }

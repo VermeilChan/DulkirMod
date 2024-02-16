@@ -94,9 +94,9 @@ object ItemAnimations {
         }
 
         // Transform to correct rotation center
-        val newX = (0.56f * (1 + config.customX)).toFloat()
-        val newY = (-0.52f * (1 - config.customY)).toFloat()
-        val newZ = (-0.71999997f * (1 + config.customZ)).toFloat()
+        val newX = (0.56f * (1 + config.customX))
+        val newY = (-0.52f * (1 - config.customY))
+        val newZ = (-0.71999997f * (1 + config.customZ))
         GlStateManager.translate(-0.56f, 0.52f, 0.71999997f)
         GlStateManager.translate(newX, newY, newZ)
 

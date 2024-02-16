@@ -7,12 +7,12 @@ plugins {
     java
     id("gg.essential.loom") version "0.10.0.+"
     id("dev.architectury.architectury-pack200") version "0.1.3"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
-    kotlin("jvm") version "1.8.20"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+    kotlin("jvm") version "2.0.0-Beta4"
 }
 
 group = "com.example.archloomtemplate"
-version = "1.2.7"
+version = "1.2.8"
 
 // Toolchains:
 java {
@@ -73,7 +73,7 @@ dependencies {
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
 
     // If you don't want mixins, remove these lines
-    compileOnly("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
+    compileOnly("org.spongepowered:mixin:0.8.5") {
         isTransitive = false
     }
     annotationProcessor("net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5")
@@ -82,7 +82,7 @@ dependencies {
     runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.1.0")
 
     // Basic OneConfig dependencies for legacy versions. See OneConfig example mod for more info
-    compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.2.0-alpha+") // Should not be included in jar
+    compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.2.2-alpha+") // Should not be included in jar
     // include should be replaced with a configuration that includes this in the jar
     shadowImpl("cc.polyfrost:oneconfig-wrapper-launchwrapper:1.0.0-beta+") // Should be included in jar
 }

@@ -36,8 +36,8 @@ import kotlin.coroutines.EmptyCoroutineContext
 )
 class DulkirMod {
 
-    var lastLongUpdate: Long = 0
-    var lastLongerUpdate: Long = 0
+    private var lastLongUpdate: Long = 0
+    private var lastLongerUpdate: Long = 0
 
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {

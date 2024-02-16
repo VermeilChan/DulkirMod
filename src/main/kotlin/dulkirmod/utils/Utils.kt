@@ -16,9 +16,9 @@ object Utils {
 	}
 
 	fun animationConfigToString() {
-		var s = ""
-		var gson = Gson()
-		var jsonString = gson.toJson(ConfigData())
+		val s: String
+		val gson = Gson()
+		val jsonString = gson.toJson(ConfigData())
 		s = Base64.getEncoder().encodeToString(jsonString.toByteArray())
 		// set clipboard
 		val selection = StringSelection(s)
@@ -59,7 +59,7 @@ object Utils {
 	}
 
 	fun getColorString(int: Int): String {
-		return if (int == 16) "§z" else EnumChatFormatting.values()[int].toString()
+		return if (int == 16) "§z" else EnumChatFormatting.entries[int].toString()
 	}
 
 	/**

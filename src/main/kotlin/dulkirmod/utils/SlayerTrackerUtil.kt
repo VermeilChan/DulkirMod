@@ -16,10 +16,10 @@ object SlayerTrackerUtil {
     var currentSlayerType: String = ""
     private var lastKillTime = 0L
     var sessionTime: Long = 0L
-    var failedRecentSlayerFlag = false
+    private var failedRecentSlayerFlag = false
 
-    val slayerQuestStartRegex = "» Slay (\\d{1,3}(?:,\\d{3})*) Combat XP worth of (\\w+).".toRegex()
-    val slayerQuestFailRegex = "SLAYER QUEST FAILED!".toRegex()
+    private val slayerQuestStartRegex = "» Slay (\\d{1,3}(?:,\\d{3})*) Combat XP worth of (\\w+).".toRegex()
+    private val slayerQuestFailRegex = "SLAYER QUEST FAILED!".toRegex()
     @SubscribeEvent
     fun onSlayerTypeChange(event: SlayerTypeChangeEvent) {
         // reset relevant tracking features

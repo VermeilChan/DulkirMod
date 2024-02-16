@@ -21,7 +21,7 @@ object Bridge {
             val (prefix, name, playerName) = matchResult!!.destructured
             if (Utils.stripColorCodes(name.lowercase()) == DulkirConfig.botName.lowercase()) {
                 val newPrefix = if (prefix == "§2Guild") "§2Bridge" else "§3Bridge"
-                val color = if (DulkirConfig.bridgeColor == 16) "§z" else EnumChatFormatting.values()[DulkirConfig.bridgeColor]
+                val color = if (DulkirConfig.bridgeColor == 16) "§z" else EnumChatFormatting.entries[DulkirConfig.bridgeColor]
                 event.message.siblings[0] = ChatComponentText(
                     "$newPrefix > $color$playerName§f: "
                 )
@@ -37,7 +37,7 @@ object Bridge {
             val (prefix, name, playerName) = matchResult!!.destructured
             if (Utils.stripColorCodes(name.lowercase()) == DulkirConfig.botName.lowercase()) {
                 val newPrefix = if (prefix == "§2Guild") "§2Bridge" else "§3Bridge"
-                val color = if (DulkirConfig.bridgeColor == 16) "§z" else EnumChatFormatting.values()[DulkirConfig.bridgeColor]
+                val color = if (DulkirConfig.bridgeColor == 16) "§z" else EnumChatFormatting.entries[DulkirConfig.bridgeColor]
                 event.message.siblings[0] = ChatComponentText(
                     "$newPrefix > $color$playerName§f: "
                 )
@@ -52,7 +52,7 @@ object Bridge {
             val (prefix, name, playerName) = matchResult!!.destructured
             if (Utils.stripColorCodes(name.lowercase()) == DulkirConfig.botName.lowercase()) {
                 val newPrefix = if (prefix == "§2Guild") "§2Bridge" else "§3Bridge"
-                val color = if (DulkirConfig.bridgeColor == 16) "§z" else EnumChatFormatting.values()[DulkirConfig.bridgeColor]
+                val color = if (DulkirConfig.bridgeColor == 16) "§z" else EnumChatFormatting.entries[DulkirConfig.bridgeColor]
                 event.message.siblings[0] = ChatComponentText(
                     "$newPrefix > $color$playerName§f: "
                 )

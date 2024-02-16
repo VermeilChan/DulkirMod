@@ -8,7 +8,7 @@ object DungeonKeyDisplay {
     private val altPickupMessage = "A Wither Key was picked up!".toRegex()
     private val openMessage = "([a-zA-Z]+) opened a WITHER door!".toRegex()
     private val altOpenMessage = "The BLOOD DOOR has been opened!".toRegex()
-    var hasKey = false;
+    var hasKey = false
     fun handle(stringUnformatted: String) {
         if (TabListUtils.area != "Dungeon") {
             hasKey = false

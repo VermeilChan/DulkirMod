@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import kotlin.math.max
 
 object EffigyWaypoint {
-    var effigyWaypoints = arrayOf(
+    private var effigyWaypoints = arrayOf(
         Effigy(Vec3(150.5, 76.0, 95.5)),
         Effigy(Vec3(193.5, 90.0, 119.5)),
         Effigy(Vec3(235.5, 107.0, 147.5)),

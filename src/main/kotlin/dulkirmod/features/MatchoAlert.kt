@@ -9,7 +9,7 @@ import net.minecraft.client.audio.SoundCategory
 
 object MatchoAlert {
 
-    var hasSentAlert = false
+    private var hasSentAlert = false
 
     fun alert() {
         if (!DulkirConfig.notifyMatcho) return

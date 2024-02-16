@@ -12,11 +12,11 @@ import org.lwjgl.input.Keyboard
 import org.lwjgl.input.Mouse
 
 object ScalableTooltips {
-    var scrollY: Int = 0
-    var scrollX: Int = 0
+    private var scrollY: Int = 0
+    private var scrollX: Int = 0
     // Checks to see if large tooltips should be snapped (for larger than can fit on screen code)
-    var snapFlag: Boolean = true
-    var scaleScale: Float = 0f
+    private var snapFlag: Boolean = true
+    private var scaleScale: Float = 0f
     var previousStack: ItemStack? = null
 
     fun drawScaledHoveringText(

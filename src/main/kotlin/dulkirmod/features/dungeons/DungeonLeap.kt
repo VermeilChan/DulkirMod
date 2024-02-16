@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent
 
 object DungeonLeap {
     var inLeapMenu = false
-    var leapPlayers = BooleanArray(5) { false }
+    private var leapPlayers = BooleanArray(5) { false }
 
 	private var lastGuiOpenEvent = 0L
 

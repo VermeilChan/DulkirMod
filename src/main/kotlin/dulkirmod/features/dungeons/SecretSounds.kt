@@ -81,7 +81,7 @@ object SecretSounds {
             playSound()
     }
 
-    fun playSound() {
+    private fun playSound() {
         if (System.currentTimeMillis() - lastSound > 50) { // don't kill ears
             val prevNote = mc.gameSettings.getSoundLevel(SoundCategory.RECORDS)
             mc.gameSettings.setSoundLevel(SoundCategory.RECORDS, 1f)

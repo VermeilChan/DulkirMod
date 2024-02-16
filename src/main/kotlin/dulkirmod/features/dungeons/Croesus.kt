@@ -11,8 +11,8 @@ import net.minecraftforge.fml.common.gameevent.TickEvent
 
 object Croesus {
 
-	var lastGuiOpenEvent: Long = 0
-	var lastPageNumber = 1
+	private var lastGuiOpenEvent: Long = 0
+	private var lastPageNumber = 1
 
 	@SubscribeEvent
 	fun onTick(event: TickEvent.ClientTickEvent) {
@@ -20,7 +20,7 @@ object Croesus {
 		var pageNumber = 1
 
 		if (!DulkirConfig.hideOpenedChests) return
-		if (mc.currentScreen == null || !(mc.currentScreen is GuiChest)) {
+		if (mc.currentScreen == null || mc.currentScreen !is GuiChest) {
 			inCroesusBool = false
 			return
 		}
@@ -64,9 +64,9 @@ object Croesus {
 		return 3
 	}
 
-	var inCroesusBool: Boolean = false
+	private var inCroesusBool: Boolean = false
 
-	var boolArray = BooleanArray(36) { false }
+	private var boolArray = BooleanArray(36) { false }
 
 	@JvmStatic
 	fun inCroesus(): Boolean {

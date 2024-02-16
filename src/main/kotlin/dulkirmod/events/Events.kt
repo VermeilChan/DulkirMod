@@ -15,7 +15,7 @@ class EntityRemovedEvent(val entity: Entity) : Event()
  * Always fired when a sound is played, as opposed to [PlaySoundEvent], which does not get fired when the master volume is 0.
  */
 data class AlwaysPlaySoundEvent(val sound: ISound, val soundManager: SoundManager) : Event() {
-    val name = sound.soundLocation.resourcePath
+    val name: String = sound.soundLocation.resourcePath
 }
 
 class SlayerTypeChangeEvent : Event()

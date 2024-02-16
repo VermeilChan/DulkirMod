@@ -15,9 +15,9 @@ class YawDisplayHud : TextHud(false) {
         var yaw = mc.thePlayer.rotationYaw % 360f
 
         if (yaw < -180.0f) {
-            yaw += 360.0f;
+            yaw += 360.0f
         } else if (yaw > 180.0f) {
-            yaw -= 360.0f;
+            yaw -= 360.0f
         }
         if (DulkirConfig.yaw3Decimals) {
             lines?.add(0, String.format("Yaw: %.3f", yaw))

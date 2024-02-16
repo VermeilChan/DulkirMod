@@ -5,7 +5,7 @@ import net.minecraft.scoreboard.Score
 import net.minecraft.scoreboard.ScorePlayerTeam
 
 object ScoreBoardUtils {
-    var isInM7: Boolean = false;
+    var isInM7: Boolean = false
     fun getLines(): MutableList<String> {
         val scoreboard = DulkirMod.mc.thePlayer.worldScoreboard
         val sidebarObjective = scoreboard.getObjectiveInDisplaySlot(1)

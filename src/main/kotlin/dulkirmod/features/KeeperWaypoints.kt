@@ -11,15 +11,15 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import kotlin.math.max
 
 object KeeperWaypoints {
-    val vec1 = Vec3(-208.5, 44.5, -259.5)
-    val vec2 = Vec3(-311.5, 43.5, -232.5)
-    val vec3 = Vec3(-230.5, 57.5, -307.5)
-    val vec4 = Vec3(-269.5, 47.5, -166.5)
-    val vec5 = Vec3(-292.5, 47.5, -167.5)
-    val vec6 = Vec3(-291.5, 47.5, -183.5)
-    val vec7 = Vec3(-282.5, 47.5, -195.5)
-    val vec8 = Vec3(-262.5, 49.5, -191.5)
-    val vec9 = Vec3(-269.5, 61.5, -159.5)
+    private val vec1 = Vec3(-208.5, 44.5, -259.5)
+    private val vec2 = Vec3(-311.5, 43.5, -232.5)
+    private val vec3 = Vec3(-230.5, 57.5, -307.5)
+    private val vec4 = Vec3(-269.5, 47.5, -166.5)
+    private val vec5 = Vec3(-292.5, 47.5, -167.5)
+    private val vec6 = Vec3(-291.5, 47.5, -183.5)
+    private val vec7 = Vec3(-282.5, 47.5, -195.5)
+    private val vec8 = Vec3(-262.5, 49.5, -191.5)
+    private val vec9 = Vec3(-269.5, 61.5, -159.5)
     @SubscribeEvent
     fun onWorldRenderLast(event: RenderWorldLastEvent) {
         if (!DulkirConfig.keeperWaypoints) return

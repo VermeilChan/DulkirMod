@@ -43,7 +43,7 @@ class FarmingControlSchemeCommand : ClientCommandBase("farmcontrols") {
                 rightKey.keyCode = 205 // 205 = Arrow Right key code
 
                 // Set mouse sensitivity to 70
-                minecraft.gameSettings.mouseSensitivity = 0.7f
+                minecraft.gameSettings.mouseSensitivity = 0.35f
             } else {
                 KeyBinding.setKeyBindState(breakingKey.keyCode, false)
                 breakingKey.keyCode = -100 // -100 = Left click key code
@@ -58,7 +58,7 @@ class FarmingControlSchemeCommand : ClientCommandBase("farmcontrols") {
                 rightKey.keyCode = 32 // 32 = D key code
 
                 // Set mouse sensitivity to 100
-                minecraft.gameSettings.mouseSensitivity = 1.0f
+                minecraft.gameSettings.mouseSensitivity = 0.5f
             }
 
             // Save the changes to the control settings

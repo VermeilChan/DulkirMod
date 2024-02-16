@@ -12,9 +12,6 @@ import net.minecraftforge.fml.client.registry.ClientRegistry
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-import net.minecraftforge.fml.common.gameevent.TickEvent
-import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent
 import org.lwjgl.input.Keyboard
 import java.io.File
 import kotlin.coroutines.EmptyCoroutineContext
@@ -48,25 +45,6 @@ class DulkirMod {
         mcBus.register(this)
 
         keyBinds.forEach(ClientRegistry::registerKeyBinding)
-    }
-
-    @SubscribeEvent
-    fun onTick(event: ClientTickEvent) {
-        if (event.phase == TickEvent.Phase.START && display != null) {
-            mc.displayGuiScreen(display)
-            display = null
-        }
-
-        val currTime = System.currentTimeMillis()
-        if (currTime - lastLongUpdate > 1000) { // long update
-            // Now I don't have to fetch the entries for multiple things, this just updates and caches
-            // the data structure on 1s cooldown
-            lastLongUpdate = currTime
-        }
-
-        if (currTime - lastLongerUpdate > 5000) { // longer update
-            lastLongerUpdate = currTime
-        }
     }
 
     companion object {

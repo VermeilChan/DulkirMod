@@ -5,8 +5,6 @@ import cc.polyfrost.oneconfig.config.annotations.*
 import cc.polyfrost.oneconfig.config.data.Mod
 import cc.polyfrost.oneconfig.config.data.ModType
 import dulkirmod.DulkirMod
-import dulkirmod.overlays.YawDisplayHud
-import dulkirmod.utils.Utils
 
 
 object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-config.json") {
@@ -154,25 +152,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         DulkirMod.mc.displayGuiScreen(null)
     }
 
-    @Button(
-        name = "Export Preset as String",
-        description = "Base64 representation of your current config - will copy to clipboard when pressed.",
-        category = "Animations",
-        subcategory = "Presets",
-        text = "Export!"
-    )
-    fun presetString() = Utils.animationConfigToString()
-
-
-    @Button(
-        name = "Import Preset from Clipboard",
-        description = "Base64 representation of your config accepted from clipboard. Closes gui.",
-        category = "Animations",
-        subcategory = "Presets",
-        text = "Import!"
-    )
-    fun stringToConfig() = Utils.animationStringtoConfig()
-
 
     @Slider(
         name = "Default Sensitivity",
@@ -200,30 +179,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         subcategory = "Fixes"
     )
     var showReEquipAnimationWhenChangingSlots = true
-
-
-    @HUD(
-        name = "Pitch/Yaw Display in Garden",
-        category = "HUD",
-        subcategory = "Farming"
-    )
-    var YawDisplayHud: YawDisplayHud = YawDisplayHud()
-
-    @Switch(
-        name = "Display Pitch as well",
-        description = "useful for some slime launcher stuff",
-        category = "HUD",
-        subcategory = "Farming"
-    )
-    var showPitch = false
-
-    @Switch(
-        name = "3 Decimals on Yaw",
-        description = "are u ok bro",
-        category = "HUD",
-        subcategory = "Farming"
-    )
-    var yaw3Decimals = false
 
     fun init() {
         initialize()

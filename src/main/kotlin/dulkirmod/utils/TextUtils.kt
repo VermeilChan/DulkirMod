@@ -15,12 +15,4 @@ object TextUtils {
 		val stateText = if (state) "§aON" else "§cOFF"
 		info("§9Toggled $message §8[$stateText§8]§r")
 	}
-
-	fun sendPartyChatMessage(message: String) {
-		sendMessage("/pc $message")
-	}
-
-	fun sendMessage(message: String) {
-		DulkirMod.mc.thePlayer.sendChatMessage(message)
-	}
 }

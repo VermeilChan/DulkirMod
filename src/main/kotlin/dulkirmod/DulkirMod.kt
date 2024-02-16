@@ -2,7 +2,6 @@ package dulkirmod
 
 import dulkirmod.command.*
 import dulkirmod.config.DulkirConfig
-import dulkirmod.utils.*
 import kotlinx.coroutines.CoroutineScope
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
@@ -83,9 +82,7 @@ class DulkirMod {
 
         val keyBinds = arrayOf(
             KeyBinding("Open Settings", Keyboard.KEY_RSHIFT, "Dulkir Mod"),
-            KeyBinding("Toggle Selfie Setting", Keyboard.KEY_NONE, "Dulkir Mod"),
             KeyBinding("Toggle Farming Controls", Keyboard.KEY_NONE, "Dulkir Mod"),
-            KeyBinding("Dynamic Key", Keyboard.KEY_NONE, "Dulkir Mod")
         )
     }
 

@@ -1,10 +1,22 @@
 # DulkirMod - Hypixel Skyblock
 
-<div style="text-align: center;">
-    <a href="https://github.com/VermeilChan/DulkirMod">
-        <img src="https://img.shields.io/github/downloads/VermeilChan/DulkirMod/total" alt="downloads">
-    </a>
-</div>
+<p align="center">
+  <a href="https://github.com/VermeilChan/DulkirMod/graphs/contributors">
+    <img alt="Contributors" src="https://img.shields.io/github/contributors/VermeilChan/DulkirMod" />
+  </a>
+  <a href="https://github.com/VermeilChan/DulkirMod/releases">
+    <img alt="Latest Release" src="https://img.shields.io/github/release/VermeilChan/DulkirMod" />
+  </a>
+  <a href="https://github.com/VermeilChan/DulkirMod/releases">
+    <img alt="Downloads" src="https://img.shields.io/github/downloads/VermeilChan/DulkirMod/total" />
+  </a>
+  <a href="https://github.com/VermeilChan/DulkirMod/blob/master/LICENSE">
+    <img alt="License" src="https://img.shields.io/github/license/VermeilChan/DulkirMod" />
+  </a>
+  <a href="https://github.com/VermeilChan/DulkirMod/commits/master">
+    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/VermeilChan/DulkirMod" />
+  </a>
+</p>
 
 <p style="font-size: medium">
 This fork of <a href="https://github.com/inglettronald/DulkirMod">DulkirMod</a>, simplifies its features, focusing primarily on farming.

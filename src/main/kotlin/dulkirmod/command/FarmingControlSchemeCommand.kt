@@ -66,7 +66,7 @@ class FarmingControlSchemeCommand : ClientCommandBase("farmcontrols") {
             minecraft.gameSettings.loadOptions()
 
             enabled = !enabled
-            TextUtils.toggledMessage("idk man the farming controls are killing me man ¯\\_(ツ)_/¯", enabled)
+            TextUtils.toggledMessage("GET BACK TO WORK, I SAID GET BACK TO WORK BLUD, DID TELL TO STOP WORKING???", enabled)
         }
     }
 }

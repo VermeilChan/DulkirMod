@@ -15,11 +15,6 @@ class FarmingControlSchemeCommand : ClientCommandBase("farmcontrols") {
 
     companion object {
         private var enabled = false
-
-        /**
-         * Method to do the brunt work of the command. This is separate, so I can also let the user set a
-         * keybind to do the same thing.
-         */
         fun toggleControls() {
             val minecraft = Minecraft.getMinecraft()
             val breakingKey: KeyBinding = minecraft.gameSettings.keyBindAttack
@@ -30,34 +25,34 @@ class FarmingControlSchemeCommand : ClientCommandBase("farmcontrols") {
             val rightKey: KeyBinding = minecraft.gameSettings.keyBindRight
 
             if (!enabled) {
+                // Toggle attack and jump controls
                 KeyBinding.setKeyBindState(breakingKey.keyCode, false)
                 breakingKey.keyCode = 57 // 57 = Space key code
-
                 KeyBinding.setKeyBindState(jumpKey.keyCode, false)
                 jumpKey.keyCode = -100 // -100 = Left click key code
 
-                // Arrow key codes
+                // Set arrow key controls
                 forwardKey.keyCode = 200 // 200 = Arrow Up key code
                 backwardKey.keyCode = 208 // 208 = Arrow Down key code
                 leftKey.keyCode = 203 // 203 = Arrow Left key code
                 rightKey.keyCode = 205 // 205 = Arrow Right key code
 
-                // Set mouse sensitivity to 70
-                minecraft.gameSettings.mouseSensitivity = 0.2f
+                // Adjust mouse sensitivity
+                minecraft.gameSettings.mouseSensitivity = 0.05f
             } else {
+                // Toggle attack and jump controls
                 KeyBinding.setKeyBindState(breakingKey.keyCode, false)
                 breakingKey.keyCode = -100 // -100 = Left click key code
-
                 KeyBinding.setKeyBindState(jumpKey.keyCode, false)
                 jumpKey.keyCode = 57 // 57 = Space key code
 
-                // Restore default key codes
+                // Reset arrow key controls to defaults
                 forwardKey.keyCode = 17 // 17 = W key code
                 backwardKey.keyCode = 31 // 31 = S key code
                 leftKey.keyCode = 30 // 30 = A key code
                 rightKey.keyCode = 32 // 32 = D key code
 
-                // Set mouse sensitivity to 100
+                // Reset mouse sensitivity
                 minecraft.gameSettings.mouseSensitivity = 0.5f
             }
 
@@ -66,7 +61,7 @@ class FarmingControlSchemeCommand : ClientCommandBase("farmcontrols") {
             minecraft.gameSettings.loadOptions()
 
             enabled = !enabled
-            TextUtils.toggledMessage("GET BACK TO WORK, I SAID GET BACK TO WORK BLUD, DID I TELL YOU TO STOP WORKING???", enabled)
+            TextUtils.toggledMessage("Alright Bro", enabled)
         }
     }
 }

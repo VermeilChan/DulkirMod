@@ -5,11 +5,9 @@ import cc.polyfrost.oneconfig.config.annotations.*
 import cc.polyfrost.oneconfig.config.data.Mod
 import cc.polyfrost.oneconfig.config.data.ModType
 import dulkirmod.DulkirMod
-import dulkirmod.utils.Utils
 
 object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-config.json") {
 
-    // CUSTOM ANIMATIONS
     @Switch(
         name = "Global Toggle",
         description = "Change the look of your held item",
@@ -152,25 +150,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         DulkirMod.mc.displayGuiScreen(null)
     }
 
-    @Button(
-        name = "Export Preset as String",
-        description = "Base64 representation of your current config - will copy to clipboard when pressed.",
-        category = "Animations",
-        subcategory = "Presets",
-        text = "Export!"
-    )
-    fun presetString() = Utils.animationConfigToString()
-
-
-    @Button(
-        name = "Import Preset from Clipboard",
-        description = "Base64 representation of your config accepted from clipboard. Closes gui.",
-        category = "Animations",
-        subcategory = "Presets",
-        text = "Import!"
-    )
-    fun stringToConfig() = Utils.animationStringtoConfig()
-
     @Slider(
         name = "Default Sensitivity",
         description = "For use with the /farmcontrols command toggle",
@@ -180,23 +159,7 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         max = 2f,
         step = 0
     )
-    var defaultSens = .7f
-
-    @Switch(
-        name = "Turn off re-equip animation",
-        description = "Will stop the spam re-equip when stuff like cultivating is updating",
-        category = "Animations",
-        subcategory = "Fixes"
-    )
-    var cancelReequip = false
-
-    @Switch(
-        name = "Show re-equip animation when changing slots",
-        description = "Will overwrite \"Turn off re-equip animation\" when switching the slot.",
-        category = "Animations",
-        subcategory = "Fixes"
-    )
-    var showReEquipAnimationWhenChangingSlots = true
+    var defaultSens = 0.05f
 
     fun init() {
         initialize()

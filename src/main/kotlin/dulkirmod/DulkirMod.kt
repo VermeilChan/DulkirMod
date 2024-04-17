@@ -60,7 +60,6 @@ class DulkirMod {
         val keyBinds = arrayOf(
             KeyBinding("Open Settings", Keyboard.KEY_RSHIFT, "Dulkir Mod"),
             KeyBinding("Toggle Farming Controls", Keyboard.KEY_NUMPAD9, "Dulkir Mod"),
-            KeyBinding("Toggle Arrow Controls", Keyboard.KEY_NUMPAD8, "Dulkir Mod"),
         )
     }
 }

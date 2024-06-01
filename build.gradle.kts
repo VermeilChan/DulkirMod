@@ -8,7 +8,7 @@ plugins {
     id("gg.essential.loom") version "0.10.0.+"
     id("dev.architectury.architectury-pack200") version "0.1.3"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    kotlin("jvm") version "1.9.23"
+    kotlin("jvm") version "2.0.0"
 }
 
 group = "com.example.archloomtemplate"
@@ -74,7 +74,7 @@ dependencies {
     compileOnly("org.spongepowered:mixin:0.8.5") {
         isTransitive = false
     }
-    annotationProcessor("net.fabricmc:sponge-mixin:0.13.1+mixin.0.8.5")
+    annotationProcessor("net.fabricmc:sponge-mixin:0.13.4+mixin.0.8.5")
 
     // Basic OneConfig dependencies for legacy versions. See OneConfig example mod for more info
     compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.2.2-alpha+") // Should not be included in jar

@@ -3,11 +3,11 @@
     "modid": "dulkirmod",
     "name": "Dulkir Mod",
     "description": "The worst skyblock mod.",
-    "version": "1.2.8",
+    "version": "1.2.9",
     "mcversion": "1.8.9",
     "authorList": [
       "Dulkir",
-      "Vermeil"
+      "VermeilChan"
     ]
   }
 ]

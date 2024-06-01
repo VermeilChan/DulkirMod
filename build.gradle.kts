@@ -12,19 +12,16 @@ plugins {
 }
 
 group = "com.example.archloomtemplate"
-version = "1.2.8"
+version = "1.2.9"
 
-// Toolchains:
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 }
 
-// Minecraft configuration:
 loom {
     log4jConfigs.from(file("log4j2.xml"))
     launchConfigs {
         "client" {
-            // If you don't want mixins, remove these lines
             property("mixin.debug", "true")
             property("asmhelper.verbose", "true")
             arg("--tweakClass", "cc.polyfrost.oneconfig.loader.stage0.LaunchWrapperTweaker")
@@ -33,24 +30,20 @@ loom {
     }
     forge {
         pack200Provider.set(dev.architectury.pack200.java.Pack200Adapter())
-        // If you don't want mixins, remove this lines
         mixinConfig("mixins.dulkirmod.json")
     }
-    // If you don't want mixins, remove these lines
     mixin {
         defaultRefmapName.set("mixins.dulkirmod.refmap.json")
     }
 }
 
 sourceSets.main {
-    output.setResourcesDir(file("$buildDir/classes/java/main"))
+    output.setResourcesDir(layout.buildDirectory.dir("classes/java/main").get().asFile)
 }
 
 val packageLib by configurations.creating {
     configurations.implementation.get().extendsFrom(this)
 }
-
-// Dependencies:
 
 repositories {
     mavenCentral()
@@ -63,33 +56,25 @@ val shadowImpl: Configuration by configurations.creating {
     configurations.implementation.get().extendsFrom(this)
 }
 
-
-
 dependencies {
     minecraft("com.mojang:minecraft:1.8.9")
     mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
 
-    // If you don't want mixins, remove these lines
     compileOnly("org.spongepowered:mixin:0.8.5") {
         isTransitive = false
     }
     annotationProcessor("net.fabricmc:sponge-mixin:0.13.4+mixin.0.8.5")
 
-    // Basic OneConfig dependencies for legacy versions. See OneConfig example mod for more info
-    compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.2.2-alpha+") // Should not be included in jar
-    // include should be replaced with a configuration that includes this in the jar
-    shadowImpl("cc.polyfrost:oneconfig-wrapper-launchwrapper:1.0.0-beta+") // Should be included in jar
+    compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.2.2-alpha+")
+    shadowImpl("cc.polyfrost:oneconfig-wrapper-launchwrapper:1.0.0-beta+")
 }
 
-// Configures our shadow/shade configuration, so we can
-// include some dependencies within our mod jar file.
 tasks.named<ShadowJar>("shadowJar") {
     archiveClassifier.set("dev") // TODO: machete gets confused by the `dev` prefix.
     configurations = listOf(shadowImpl)
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
-// Tasks:
 
 tasks.withType(JavaCompile::class) {
     options.encoding = "UTF-8"
@@ -106,7 +91,6 @@ tasks.withType(Jar::class) {
         this["FMLCorePluginContainsFMLMod"] = "true"
         this["ForceLoadAsMod"] = "true"
 
-        // If you don't want mixins, remove these lines
         this["TweakClass"] = "cc.polyfrost.oneconfig.loader.stage0.LaunchWrapperTweaker"
         this["MixinConfigs"] = "mixins.dulkirmod.json"
     }
@@ -128,7 +112,6 @@ tasks.shadowJar {
         }
     }
 
-    // If you want to include other dependencies and shadow them, you can relocate them in here
     fun relocate(name: String) = relocate(name, "com.dulkirmod.deps.$name")
 }
 

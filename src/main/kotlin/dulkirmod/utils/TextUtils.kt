@@ -16,7 +16,4 @@ object TextUtils {
 		info("§9Toggled $message §8[$stateText§8]§r")
 	}
 
-	private fun sendMessage(message: String) {
-		DulkirMod.mc.thePlayer.sendChatMessage(message)
-	}
 }

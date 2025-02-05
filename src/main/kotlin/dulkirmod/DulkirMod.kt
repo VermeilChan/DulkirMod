@@ -26,8 +26,6 @@ class DulkirMod {
         val directory = File(event.modConfigurationDirectory, "dulkirmod")
         directory.mkdirs()
         val cch = ClientCommandHandler.instance
-
-        cch.registerCommand(FarmingControlSchemeCommand())
     }
 
     @Mod.EventHandler

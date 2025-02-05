@@ -51,7 +51,7 @@ class DulkirMod {
     companion object {
         const val MOD_ID = "dulkirmod"
         const val MOD_NAME = "Dulkir Mod"
-        const val MOD_VERSION = "1.2.8"
+        const val MOD_VERSION = "1.2.9"
         const val CHAT_PREFIX = "§f<§3DulkirMod§f>§r"
 
         val mc: Minecraft = Minecraft.getMinecraft()
@@ -59,7 +59,6 @@ class DulkirMod {
 
         val keyBinds = arrayOf(
             KeyBinding("Open Settings", Keyboard.KEY_RSHIFT, "Dulkir Mod"),
-            KeyBinding("Toggle Farming Controls", Keyboard.KEY_NUMPAD9, "Dulkir Mod"),
         )
     }
 }

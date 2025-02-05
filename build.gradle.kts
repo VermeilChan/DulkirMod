@@ -1,6 +1,6 @@
-
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     idea
@@ -74,28 +74,36 @@ tasks.named<ShadowJar>("shadowJar") {
     archiveClassifier.set("all-dev")
     configurations = listOf(shadowImpl)
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    doLast {
+        configurations.get().forEach {
+            println("Config: ${it.incoming.files}")
+        }
+    }
+
+    fun relocate(name: String) = relocate(name, "com.dulkirmod.deps.$name")
 }
 
-tasks.withType(JavaCompile::class) {
+tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
 }
+
 tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "1.8"
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_1_8)
+        optIn.add("kotlin.RequiresOptIn")
     }
 }
 
-tasks.withType(Jar::class) {
+tasks.withType<Jar> {
     archiveBaseName.set("dulkirmod")
-    manifest.attributes.run {
-        this["FMLCorePluginContainsFMLMod"] = "true"
-        this["ForceLoadAsMod"] = "true"
-
-        this["TweakClass"] = "cc.polyfrost.oneconfig.loader.stage0.LaunchWrapperTweaker"
-        this["MixinConfigs"] = "mixins.dulkirmod.json"
+    manifest.attributes.apply {
+        put("FMLCorePluginContainsFMLMod", "true")
+        put("ForceLoadAsMod", "true")
+        put("TweakClass", "cc.polyfrost.oneconfig.loader.stage0.LaunchWrapperTweaker")
+        put("MixinConfigs", "mixins.dulkirmod.json")
     }
 }
-
 
 val remapJar by tasks.named<net.fabricmc.loom.task.RemapJarTask>("remapJar") {
     archiveClassifier.set("all")
@@ -107,14 +115,16 @@ tasks.shadowJar {
     archiveClassifier.set("all-dev")
     configurations = listOf(shadowImpl)
     doLast {
-        configurations.forEach {
-            println("Config: ${it.files}")
+        configurations.get().forEach {
+            println("Config: ${it.incoming.files}")
         }
     }
 
     fun relocate(name: String) = relocate(name, "com.dulkirmod.deps.$name")
 }
 
-tasks.withType<Jar> { duplicatesStrategy = DuplicatesStrategy.EXCLUDE }
+tasks.withType<Jar> {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
 
 tasks.assemble.get().dependsOn(tasks.remapJar)

@@ -150,17 +150,6 @@ object DulkirConfig : Config(Mod("DulkirMod", ModType.SKYBLOCK), "dulkirmod-conf
         DulkirMod.mc.displayGuiScreen(null)
     }
 
-    @Slider(
-        name = "Default Sensitivity",
-        description = "For use with the /farmcontrols command toggle",
-        category = "Farming",
-        subcategory = "Farming",
-        min = 0f,
-        max = 2f,
-        step = 0
-    )
-    var defaultSens = 0.05f
-
     fun init() {
         initialize()
     }

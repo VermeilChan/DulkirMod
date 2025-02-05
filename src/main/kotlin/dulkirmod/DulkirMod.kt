@@ -1,6 +1,5 @@
 package dulkirmod
 
-import dulkirmod.command.FarmingControlSchemeCommand
 import dulkirmod.config.DulkirConfig
 import net.minecraft.client.Minecraft
 import net.minecraft.client.settings.KeyBinding
@@ -43,9 +42,6 @@ class DulkirMod {
     @SubscribeEvent
     fun onKey(event: KeyInputEvent) {
         if (keyBinds[0].isPressed) config.openGui()
-        if (keyBinds[1].isPressed) {
-            FarmingControlSchemeCommand.toggleControls()
-        }
     }
 
     companion object {

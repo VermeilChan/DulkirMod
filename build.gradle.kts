@@ -7,8 +7,8 @@ plugins {
     java
     id("gg.essential.loom") version "0.10.0.+"
     id("dev.architectury.architectury-pack200") version "0.1.3"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
-    kotlin("jvm") version "2.0.0"
+    id("com.gradleup.shadow") version "9.0.0-beta7"
+    kotlin("jvm") version "2.1.20-Beta2"
 }
 
 group = "com.example.archloomtemplate"
@@ -61,17 +61,17 @@ dependencies {
     mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
 
-    compileOnly("org.spongepowered:mixin:0.8.5") {
+    compileOnly("org.spongepowered:mixin:0.8.7") {
         isTransitive = false
     }
-    annotationProcessor("net.fabricmc:sponge-mixin:0.13.4+mixin.0.8.5")
+    annotationProcessor("net.fabricmc:sponge-mixin:0.15.5+mixin.0.8.7")
 
     compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.2.2-alpha+")
     shadowImpl("cc.polyfrost:oneconfig-wrapper-launchwrapper:1.0.0-beta+")
 }
 
 tasks.named<ShadowJar>("shadowJar") {
-    archiveClassifier.set("dev") // TODO: machete gets confused by the `dev` prefix.
+    archiveClassifier.set("all-dev")
     configurations = listOf(shadowImpl)
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
